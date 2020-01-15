@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+    <!-- Editable table -->
+    <div class="card">
+        <h3 class="card-header text-center font-weight-bold text-uppercase py-4">{{ name }}</h3>
+        <div class="card-body">
+            <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+              class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Reposytory id</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Description</th>
+                        <th class="text-center">Created</th>
+                        <th class="text-center">Count Of Projects</th>
+                        <th class="text-center">User id</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in reposytory %}
+                        <tr>
+                            <td class="pt-3-half" contenteditable="true">{{ row.id }}</td>
+                            <td class="pt-3-half" contenteditable="true">{{ row.name }}</td>
+                            <td class="pt-3-half" contenteditable="true">{{ row.description }}</td>
+                            <td class="pt-3-half" contenteditable="true">{{ row.created }}</td>
+                            <td class="pt-3-half" contenteditable="true">{{ row.countofprojects }}</td>
+                            <td class="pt-3-half" contenteditable="true">{{ row.user_id }}</td>
+                            <td>
+                                <span class="table-remove"><button type="button"
+                                                                   class="btn btn-danger btn-rounded btn-sm my-0">
+                                    <a href="/edit/reposytory?id={{ row.id }}">Edit</a></button></span>
+                            </td>
+                            <td>
+                                <span class="table-remove"><button type="button"
+                                                                   class="btn btn-danger btn-rounded btn-sm my-0">
+                                    <a href="/delete/reposytory?id={{ row.id }}">Remove</a></button></span>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    <!-- This is our clonable table line -->
+
+                    </tbody>
+                </table>
+                <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0" allign="center">
+                                    <a href="/create/reposytory">Create</a></button></span>
+            </div>
+        </div>
+    </div>
+    <!-- Editable table -->
+{% endblock %}
