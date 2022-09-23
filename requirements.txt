@@ -25,7 +25,7 @@ numpy==1.18.0
 pandas==0.25.3
 plotly==4.2.1
 progressbar2==3.34.3
-protobuf==3.11.2
+protobuf==3.18.3
 psycopg2==2.8.4
 public==2019.4.13
 pyparsing==2.4.5
